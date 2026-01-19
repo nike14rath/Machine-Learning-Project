@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Performance Prediction</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            width: 420px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Student Performance Prediction</h2>
+
+    <!-- 🔴 MODIFICATION 1: action updated to /predictdata -->
+    <form action="/predictdata" method="post">
+
+        <label>Gender</label>
+        <select name="gender" required>
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <label>Race / Ethnicity</label>
+        <select name="race_ethnicity" required>
+            <option value="">Select</option>
+            <option value="group A">Group A</option>
+            <option value="group B">Group B</option>
+            <option value="group C">Group C</option>
+            <option value="group D">Group D</option>
+            <option value="group E">Group E</option>
+        </select>
+
+        <label>Parental Level of Education</label>
+        <select name="parental_level_of_education" required>
+            <option value="">Select</option>
+            <option value="associate's degree">Associate's degree</option>
+            <option value="bachelor's degree">Bachelor's degree</option>
+            <option value="high school">High school</option>
+            <option value="master's degree">Master's degree</option>
+            <option value="some college">Some college</option>
+            <option value="some high school">Some high school</option>
+        </select>
+
+        <label>Lunch</label>
+        <select name="lunch" required>
+            <option value="">Select</option>
+            <option value="standard">Standard</option>
+            <option value="free/reduced">Free / Reduced</option>
+        </select>
+
+        <label>Test Preparation Course</label>
+        <select name="test_preparation_course" required>
+            <option value="">Select</option>
+            <option value="none">None</option>
+            <option value="completed">Completed</option>
+        </select>
+
+        <label>Reading Score</label>
+        <input type="number" name="reading_score" min="0" max="100" required>
+
+        <label>Writing Score</label>
+        <input type="number" name="writing_score" min="0" max="100" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <!-- 🔴 MODIFICATION 2: result display block -->
+    {% if results %}
+        <div class="result">
+            {{ results }}
+        </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
