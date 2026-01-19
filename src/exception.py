@@ -1,7 +1,9 @@
 # to create our own custom way of handle the error
 
 import sys
-import logging
+
+# this file is requied to import to use it for the testing purpose
+# from src.logger import logging
 
 def error_message_detail(error, error_detail):
     _, _, exc_tb = error_detail.exc_info()

@@ -1,7 +1,11 @@
 pandas
 numpy
 seaborn
--e .
+scikit-learn
+catboost
+xgboost
+# -e .
+
   
 # this will automatically install the package by triggering the setup.py file in the current directory
 
