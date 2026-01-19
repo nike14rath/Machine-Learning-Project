@@ -2,6 +2,7 @@
 __pycache__/
 *.py[codz]
 *$py.class
+anaconda_projects/db/
 
 # C extensions
 *.so
